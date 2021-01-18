@@ -1,0 +1,58 @@
+2021/01/18 11:50:50 [INFO] Terraform version: 0.14.4  
+2021/01/18 11:50:50 [INFO] Go runtime version: go1.15.6
+2021/01/18 11:50:50 [INFO] CLI args: []string{"/usr/local/Cellar/tfenv/1.0.2/versions/0.14.4/terraform", "init"}
+2021/01/18 11:50:50 [DEBUG] Attempting to open CLI config file: /Users/[REDACTED]/.terraform.d/credentials.tfrc.json
+2021/01/18 11:50:50 Loading CLI configuration from /Users/[REDACTED]/.terraform.d/credentials.tfrc.json
+2021/01/18 11:50:50 [DEBUG] Not reading CLI config directory because config location is overridden by environment variable
+2021/01/18 11:50:50 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2021/01/18 11:50:50 [DEBUG] ignoring non-existing provider search directory /Users/[REDACTED]/.terraform.d/plugins
+2021/01/18 11:50:50 [DEBUG] ignoring non-existing provider search directory /Users/[REDACTED]/Library/Application Support/io.terraform/plugins
+2021/01/18 11:50:50 [DEBUG] ignoring non-existing provider search directory /Library/Application Support/io.terraform/plugins
+2021/01/18 11:50:50 [INFO] CLI command args: []string{"init"}
+Initializing modules...
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: installing child modules for . into .terraform/modules
+2021/01/18 11:50:50 [DEBUG] Module installer: begin level_2
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: level_2 is not yet installed
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: cleaning directory .terraform/modules/level_2 prior to install of level_2
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: level_2 has local path "../../modules/level-2"
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: level_2 uses directory from parent: ../../modules/level-2
+2021/01/18 11:50:50 [DEBUG] Module installer: level_2 installed at ../../modules/level-2
+2021/01/18 11:50:50 [DEBUG] Module installer: begin level_2.level_1
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: level_2.level_1 is not yet installed
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: cleaning directory .terraform/modules/level_2.level_1 prior to install of level_2.level_1
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: level_2.level_1 has local path "../level-1"
+- level_2 in ../../modules/level-2
+- level_2.level_1 in ../../modules/level-1
+2021/01/18 11:50:50 [TRACE] ModuleInstaller: level_2.level_1 uses directory from parent: ../../modules/level-1
+2021/01/18 11:50:50 [DEBUG] Module installer: level_2.level_1 installed at ../../modules/level-1
+2021/01/18 11:50:50 [TRACE] modsdir: writing modules manifest to .terraform/modules/modules.json
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Module does not support count
+
+  on main.tf line 13, in module "level_2":
+  13:   count  = 1
+
+Module "level_2" cannot be used with count because it contains a nested
+provider configuration for "aws", at ../../modules/level-1/main.tf:4,10-15.
+
+This module can be made compatible with count by changing it to receive all of
+its provider configurations from the calling module, by using the "providers"
+argument in the calling module block.
+
+
+Error: Module does not support count
+
+  on main.tf line 13, in module "level_2":
+  13:   count  = 1
+
+Module "level_2" cannot be used with count because it contains a nested
+provider configuration for "aws.other", at
+../../modules/level-1/main.tf:6,10-15.
+
+This module can be made compatible with count by changing it to receive all of
+its provider configurations from the calling module, by using the "providers"
+argument in the calling module block.
