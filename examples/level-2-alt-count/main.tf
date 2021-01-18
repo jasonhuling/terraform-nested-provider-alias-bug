@@ -8,7 +8,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-module "level_2" {
+module "level_2_alt" {
   source = "../../modules/level-2-alt"
   count  = 1
   providers = {
@@ -17,6 +17,6 @@ module "level_2" {
   }
 }
 
-output "level_2" {
-  value = module.level_2
+output "level_2_alt" {
+  value = module.level_2_alt
 }
